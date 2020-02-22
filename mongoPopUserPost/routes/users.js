@@ -28,7 +28,7 @@ router.get('/postsByUser/:id', async (req,res)=>{
 });
 
 /////////////////////////////////////7
-
+//BURASI BİZE İD SİNİ VERDİĞMİZ HERHANGİ BİR USER IN POSTS LARINI VERİYOR ÇÜNKÜ SIRA İLE HER BİR POSTUN İD Sİ GELİYOR ADINA DA ELEMENT DİYORUZ VE ONUNLA O İD Lİ POST UN DETAYLARINI ALIYORUZ HER DÖNGÜDE SIRA İLE HER POSTUN DETAYLARINI ALIRIZ
 router.get('/forEachTest/:id', async (req,res)=>{
   const {id}=req.params
   const user=await User.findById(id)

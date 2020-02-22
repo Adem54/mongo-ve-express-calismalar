@@ -23,7 +23,7 @@ router.post('/create/:id', async(req,res)=>{
    const userById=await User.findById(id) 
    //Sonrasında yukarda veri req.body üzerinden veri eklediğimiz post verisini url üzerinden id yi req.params ile alıp post verilerini girerken o id ile yüklemiştik user prooperties ini şimdi de findById ile url ye yazddğımız id ye ait user verisinin posts properties  dizisine az önce verilerini kaydettğimiz post u push ediyoruz
    //Burada dikkat edilecek en önemli husus url deki req.params dan aldğımız id yi hem post modelinin user propertiesindeki ObjectId ye veriyoruz hem de User modelinden o id li user ı çağırıp onun post una yukarda eklediğjmiz post u push ediyoruz.Birde önemli bir husus url de arama yaparken id olarak bir user id si girmemiz gerekir
-   const postsData=userById.posts.push(post);
+   userById.posts.push(post);
    //VE son olarak da post eklediimiz user ı ekrana bas diyoruz burasıda önemli gelen user verisi artık post verisi boş değill dolu olark gelecek karşımıza ve ilk post eklediğmizde user içerisinde post un tüm bilgileri gelirken 2.posttan sonra artık user içinde postların sadece id lerini görebileceğiz ve içerisinde post id leri de gelmiş olan user larımızı tekrardan save ediyoruz aşağıda
    const userData=await userById.save()
    //res.json(userById)
